@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="logs@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
+    <root id="1"/>
+    <schema id="2" parent="1" name="logs">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="emp-perf"/>
+    <schema id="4" parent="1" name="encrypt"/>
+    <schema id="5" parent="1" name="farmer-cow"/>
+    <schema id="6" parent="1" name="flight"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="sacco"/>
+    <schema id="11" parent="1" name="schoolm"/>
+    <schema id="12" parent="1" name="schools"/>
+    <schema id="13" parent="1" name="superm"/>
+    <schema id="14" parent="1" name="tevinson"/>
+    <table id="15" parent="2" name="course"/>
+    <table id="16" parent="2" name="faculty"/>
+    <table id="17" parent="2" name="login_table"/>
+    <table id="18" parent="2" name="user_attendance"/>
+    <column id="19" parent="15" name="course_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="20" parent="15" name="course_name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="21" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="22" parent="16" name="faculty_id">
+      <Position>1</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="23" parent="16" name="faculty_name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="24" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>faculty_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="17" name="login_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="17" name="login_username">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="17" name="login_rank">
+      <Position>3</Position>
+      <DataType>varchar(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="17" name="login_password">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="17" name="login_status">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="17" name="student_id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="17" name="student_name">
+      <Position>7</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="17" name="student_email">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="17" name="student_class">
+      <Position>9</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="17" name="student_course">
+      <Position>10</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="35" parent="17" name="login_id">
+      <ColNames>login_id</ColNames>
+    </index>
+    <key id="36" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>login_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="18" name="attendance_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="18" name="attendance_user_id">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="18" name="attendance_date">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="18" name="attendance_time">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="41" parent="18" name="attendance_mode">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="42" parent="18" name="attendance_id">
+      <ColNames>attendance_id</ColNames>
+    </index>
+    <key id="43" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>attendance_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
