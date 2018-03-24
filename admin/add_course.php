@@ -42,8 +42,9 @@ require_once '../connection/db.php';
 
 if(isset($_POST['register'])) {
 
-    $faculty_name_ =$_POST['faculty_name'];
-    $faculty_id =$_POST['faculty_id'];
+    $Course_Id =$_POST['Course_Id'];
+    $Course_Name =$_POST['Course_Name'];
+    $Course_Duration =$_POST['Course_Duration'];
 
     //$hashed_password = password_hash($upass, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
 
@@ -52,7 +53,7 @@ if(isset($_POST['register'])) {
 
     if ($count==0) {
 
-        $query = "INSERT INTO course(course_name) VALUES('$faculty_name_')";
+        $query = "INSERT INTO Course_Table(Course_Id,Course_Name,Course_Duration) VALUES('$Course_Id','$Course_Name','$Course_Duration')";
 
         //inserting in login table
         //$query .= "INSERT INTO login_table(login_username,login_rank,login_password,login_status) VALUES('$uname','$rank','$enc','Inactive')";
@@ -297,9 +298,14 @@ if(isset($_POST['register'])) {
                     echo $msg;
                 }
                 ?>
-
                 <div class="form-group">
-                    <input type="text" name="faculty_name" required class="form-control" placeholder="Course Name">
+                    <input type="text" name="Course_Id" required class="form-control" placeholder="Course Id">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Course_Name" required class="form-control" placeholder="Course Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Course_Duration" required class="form-control" placeholder="Course Duration">
                 </div>
 
                 <!--</div>-->

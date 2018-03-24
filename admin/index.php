@@ -197,7 +197,6 @@ while($res = mysqli_fetch_array($result1))
                             <ul class="treeview-menu">
                                 <li><a href="activate.php"><i class="fa fa-angle-double-right"></i> Activate Students</a></li>
                                 <li><a href="crud.php"><i class="fa fa-angle-double-right"></i> Manage Students</a></li>
-                                <li><a href="addscan.php"><i class="fa fa-angle-double-right"></i> Add scan device</a></li>
 
                             </ul>
                         </li>
@@ -208,8 +207,33 @@ while($res = mysqli_fetch_array($result1))
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="add_faculty.php"><i class="fa fa-angle-double-right"></i> Add Faculty</a></li>
                                 <li><a href="add_course.php"><i class="fa fa-angle-double-right"></i> Add Course</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-home"></i>
+                                <span>Course</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_faculty.php"><i class="fa fa-angle-double-right"></i> Add Courses</a></li>
+                                <li><a href="add_course.php"><i class="fa fa-angle-double-right"></i> View Course</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-home"></i>
+                                <span>Students</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> Students</a></li>
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> All Students</a></li>
 
 
                             </ul>
@@ -312,13 +336,13 @@ while($res = mysqli_fetch_array($result1))
                                       </sup>
                                     </h3>
                                     <p>
-                                        Scan Registrations
+                                        Lectures
                                     </p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-card"></i>
+                                    <i class="ion ion-android-social-user"></i>
                                 </div>
-                                <a href="addscan.php" class="small-box-footer">
+                                <a href="" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -335,13 +359,13 @@ while($res = mysqli_fetch_array($result1))
                                       </sup>
                                     </h3>
                                     <p>
-                                        Student Class
+                                        Student Course
                                     </p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-calendar"></i>
                                 </div>
-                                <a href="payments.php" class="small-box-footer">
+                                <a href="" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -356,7 +380,7 @@ while($res = mysqli_fetch_array($result1))
 
                             //fetching data in descending order (lastest entry first)
                             //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
-                            $result = mysqli_query($con, "SELECT * FROM login_table WHERE login_status='Active' AND login_rank !='1' ORDER BY login_id DESC"); // using mysqli_query instead
+                            $result = mysqli_query($con, "SELECT * FROM Course_Table ORDER BY Course_Id DESC"); // using mysqli_query instead
                             ?>
 
                             <table  border=0 cellpadding="1" cellspacing="1" id="" width="100%" class="table table-hover table-striped ">
@@ -364,10 +388,10 @@ while($res = mysqli_fetch_array($result1))
                                 <thead class="bg-light-blue">
                                 <tr>
 
-                                    <td>Student ID</td>
-                                    <td>Name</td>
-                                    <td>Email</td>
-                                    <td>Update</td>
+                                    <td>COURSE ID</td>
+                                    <td>COURSE</td>
+                                    <td>COURSE DURATION</td>
+                                    <td>ACTION</td>
                                     <td></td>
                                 </tr>
                                 </thead>
@@ -376,10 +400,9 @@ while($res = mysqli_fetch_array($result1))
                                 //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array
                                 while($res = mysqli_fetch_array($result)) {
                                     echo "<tr class='alert-info'>";
-                                    echo "<td class=''>".$res['student_id']."</td>";
-                                    echo "<td>".$res['student_name']."</td>";
-                                    echo "<td>".$res['student_email']."</td>";
-                                    echo "<td>".$res['student_class']."</td>";
+                                    echo "<td class=''>".$res['Course_Id']."</td>";
+                                    echo "<td>".$res['Course_Name']."</td>";
+                                    echo "<td>".$res['Course_Duration']."</td>";
 
                                     echo "<td><a href=\"edit.php?id=$res[login_id]\">Edit</a> | <a href=\"delete.php?id=$res[login_id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
                                 }
@@ -387,13 +410,17 @@ while($res = mysqli_fetch_array($result1))
                                 </tbody>
 
                                 <tfoot class="bg-light-blue">
-                                <td>Student ID</td>
-                                <td>Name</td>
-                                <td>Email</td>
-                                <td>Update</td>
+                                <td>COURSE ID</td>
+                                <td>COURSE</td>
+                                <td>COURSE DURATION</td>
+                                <td>ACTION</td>
                                 <td></td>
                                 </tfoot>
                             </table>
+
+                            <div class="form-group">
+                                <a href="add_course.php" class="btn btn-success">Add Course</a>
+                            </div>
 
                             <!--********************Add content here *******************-->
                         </section>
